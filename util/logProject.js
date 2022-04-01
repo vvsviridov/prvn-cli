@@ -10,10 +10,12 @@ function logProject(data, nodeSummary) {
     nodes,
   } = data
   console.log(`
-    ${chalk.bold.greenBright(projectId)}
-    ${chalk.underline(creator)}
-    ${chalk.dim.gray(creationDate)}
-    ${description}`)
+    ${chalk.italic.yellowBright('Project id')}    : ${chalk.bold.inverse(projectId)}
+    ${chalk.italic.yellowBright('Author')}        : ${chalk.underline(creator)}
+    ${chalk.italic.yellowBright('Creation Date')} : ${chalk.dim.gray(creationDate)}
+    ${chalk.italic.yellowBright('Description')}   : ${description}
+    ${chalk.italic.yellowBright('Nodes')}         : 
+  `)
   nodes.forEach(node => {
     const { id: nodeId, type, identifier, ipAddress } = node
     const { status, state } = nodeSummary.find(item => item.id === nodeId)
@@ -21,7 +23,7 @@ function logProject(data, nodeSummary) {
       ${type}
       ${identifier}
       ${ipAddress}
-      ${status}
+      ${status === 'Successful' ? chalk.greenBright(status) : chalk.redBright(status) }
       ${state}
     `)
   })
