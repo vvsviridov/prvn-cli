@@ -8,7 +8,7 @@ function logError(err) {
       errorDetails = null
     } = err.response.data
     console.log(`
-      🚧 ${chalk.bold.bgRed(errorTitle)}
+      ⚠️ ${chalk.bold.bgRed(errorTitle)}
       ${chalk.yellow(errorBody)}${errorDetails ? '\n' + errorDetails.toString() : ''}
     `)
   } else {
