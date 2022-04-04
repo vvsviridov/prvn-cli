@@ -29,7 +29,7 @@ function logNodeProperties(attributes, attributeGroups, indent = 6) {
   console.log('')
   attributeGroups.forEach(attributeGroup => {
     const { type, properties } = attributeGroup
-    console.log(`${' '.repeat(indent)}${chalk.bold.yellow(type)}↓`)
+    console.log(`${' '.repeat(indent)}${chalk.bold.yellow(type + '↓')}`)
     logAttributes(properties, 8)
     console.log('')
   })
