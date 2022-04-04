@@ -8,7 +8,13 @@ function logNodeStatus(statusEntries, indent = 6) {
   console.log('')
   statusEntries.forEach(entry => {
     const { task, progress, timestamp, additionalInfo } = entry
-    console.log(`${' '.repeat(indent)}${chalk.cyan(task)} ${progress} at ${chalk.italic.gray(timestamp)}${additionalInfo && '\n' + ' '.repeat(indent + 2) + chalk.dim(additionalInfo.trim())}`)
+    const addInfo = additionalInfo ? additionalInfo.trim().split('\n') : null
+    console.log(`${' '.repeat(indent)}${chalk.cyan(task)} ${progress} at ${chalk.italic.gray(timestamp)}`)
+    if (addInfo) {
+      addInfo.forEach(info => {
+        console.log(`${' '.repeat(indent + 2) + chalk.dim(info)}`)
+      })
+    }
   })
   console.log('')
 }
