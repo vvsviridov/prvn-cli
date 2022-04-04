@@ -9,7 +9,7 @@ function logError(err) {
     } = err.response.data
     console.log(`
       ⚠️ ${chalk.bold.bgRed(errorTitle)}
-      ${chalk.yellow(errorBody)}${errorDetails ? '\n' + errorDetails.toString() : ''}
+      ${chalk.yellow(errorBody || '')}${errorDetails ? '\n' + errorDetails.toString() : ''}
     `)
   } else {
     const {

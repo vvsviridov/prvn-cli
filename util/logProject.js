@@ -2,6 +2,9 @@ const chalk = require('chalk')
 
 
 function logProject(data, nodeSummary) {
+  if (!data || !nodeSummary) {
+    throw new Error('No project data or node summary!')
+  }
   const {
     id: projectId,
     description,
